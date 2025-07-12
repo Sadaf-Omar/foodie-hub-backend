@@ -1,0 +1,16 @@
+import express from 'express';
+import {
+  addMenuItem,
+  getMenu,
+  updateMenu,
+  removeMenu
+} from '../controllers/menuController.js';
+
+const router = express.Router();
+
+router.post('/', addMenuItem);
+router.get('/restaurant/:restaurantId', getMenu);
+router.put('/:id', updateMenu);
+router.delete('/:id', removeMenu);
+
+export default router;

@@ -1,0 +1,13 @@
+CREATE TABLE restaurants (
+  id SERIAL PRIMARY KEY,
+  name VARCHAR(255) NOT NULL,
+  location VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE menu_items (
+  id SERIAL PRIMARY KEY,
+  restaurant_id INTEGER REFERENCES restaurants(id) ON DELETE CASCADE,
+  name VARCHAR(255) NOT NULL,
+  price NUMERIC(10, 2) NOT NULL,
+  available BOOLEAN DEFAULT TRUE
+);
